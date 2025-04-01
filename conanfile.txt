@@ -1,6 +1,0 @@
-[requires]
-dpp/10.0.34
-
-[generators]
-CMakeDeps
-CMakeToolchain
