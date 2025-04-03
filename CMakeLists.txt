@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.3)
+cmake_minimum_required(VERSION 3.30)
 set(CMAKE_CXX_STANDARD 20)
 
 set(PROJECT_NAME Kai)
@@ -28,6 +28,17 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD # Copy every needed dll to 
 )
 endif (WIN32)
 # End Discord Bot Library
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(DEBUG_VALUE 1)
+else()
+    set(DEBUG_VALUE 0)
+endif()
+
+file(REMOVE ${CMAKE_CURRENT_SOURCE_DIR}/src/config.h)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/config.h)
+
 
 install(TARGETS ${PROJECT_NAME}
         BUNDLE DESTINATION bin
