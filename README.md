@@ -21,13 +21,27 @@ A small but nice Discord bot, for our discord server, does mostly small work and
 
 Open the root CMakeLists.txt in a coder editor/IDE that can:
     
- 1. Handle cmake presets
- 2. Supports clang-format 
-   
-For development, select the debug profile and start the cmake, followed by a build.
+ - Handle cmake presets
+ - Supports clang-format 
+
+## Development
+
+### Debug/Testing
+
+1. Create a private discord bot on the discord developer portal
+2. Invite the bot to your private test server
+
+For development, select one of the debug profiles and start the cmake, followed by a build.
+
+### Release
+
+- The Bot Token for the main server will be set active in a release cmake preset
+- Rest is the same as in Debug
+- Dont't use this for feature testing
+
+>Tested with clion.
 
 >[!WARNING]
->The build will most likely fail, due to two missing includes in the d++ lib
->There is a patch for this in the “patches” folder, just go to the build/_deps/dpp-src directory and `git apply patch <path/to/patch>`.
+>Known to have problems with code editors who don't provide a toolchain, e.g vs code
 
 

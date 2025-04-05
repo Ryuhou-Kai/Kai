@@ -27,6 +27,23 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD # Copy every needed dll to 
         COMMAND_EXPAND_LISTS
 )
 endif (WIN32)
+
+if (DPP_ADDED)
+    message(STATUS "Applying patch to DPP...")
+
+    execute_process(
+        COMMAND git apply ${CMAKE_SOURCE_DIR}/patches/poll-include.patch
+        WORKING_DIRECTORY ${DPP_SOURCE_DIR}
+        RESULT_VARIABLE PATCH_RESULT
+        ERROR_VARIABLE PATCH_ERROR
+    )
+
+    if (PATCH_RESULT)
+        message(STATUS "Patch does not apply for current version.")
+    else()
+        message(STATUS "Patch applied successfully.")
+    endif()
+endif()
 # End Discord Bot Library
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
