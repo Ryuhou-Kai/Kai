@@ -42,6 +42,6 @@ For development, select one of the debug profiles and start the cmake, followed 
 >Tested with clion.
 
 >[!WARNING]
->Known to have problems with code editors who don't provide a toolchain, e.g vs code
+>Known to have problems with code editors who don't provide a toolchain on windows, e.g vs code, work wizhout issues on linux! I use Arch btw
 
 
