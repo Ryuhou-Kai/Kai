@@ -4,9 +4,9 @@
 #include "config.h"
 //PLS READ!!!!!!!!!!!!!!!!
 #if DEBUG_VALUE // This is the Token for testing replace with your own bot Token!
-const std::string BOT_TOKEN = "MTM1NTUzNzM5MTU5ODgyOTU3Ng.G2LXKA.A0jNHaGhZ1yU0zvTxI32kMhvMO-gMO4J2rZypg";
-#else// This is the Token for the Bot on the discord server
 const std::string BOT_TOKEN = "MTM1NjY1NzIwMTkwNDYxOTc4Mg.GHSer4.suQ1pyJg5oCRjXqGy7oABmZRBYCzJLxGbGj0uY";
+#else// This is the Token for the Bot on the discord server
+const std::string BOT_TOKEN = "MTM1NTUzNzM5MTU5ODgyOTU3Ng.G2LXKA.A0jNHaGhZ1yU0zvTxI32kMhvMO-gMO4J2rZypg";
 #endif
 
 int main() {
