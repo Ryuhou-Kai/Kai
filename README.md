@@ -10,6 +10,7 @@ A small but nice Discord bot, for our discord server, does mostly small work and
 ## Features
 
 - Answers with a cat picture upon "!cat" /ᐠ ˵> ⩊ <˵マ
+- Logs deleted messages with all attachments
 
 # Build/Contributing
 
@@ -30,6 +31,7 @@ Open the root CMakeLists.txt in a coder editor/IDE that can:
 
 1. Create a private discord bot on the discord developer portal
 2. Invite the bot to your private test server
+3. Set the bot token and logging channel id in th main.cpp under the DEBUG_VALUE direktive
 
 For development, select one of the debug profiles and start the cmake, followed by a build.
 
@@ -38,10 +40,8 @@ For development, select one of the debug profiles and start the cmake, followed 
 - The Bot Token for the main server will be set active in a release cmake preset
 - Rest is the same as in Debug
 - Dont't use this for feature testing
-
->Tested with clion.
-
+- 
 >[!WARNING]
->Known to have problems with code editors who don't provide a toolchain on windows, e.g vs code, work wizhout issues on linux! I use Arch btw
+>Known to have problems with code editors which don't provide a toolchain on windows, e.g vs code, works without issues on linux! I use Arch btw
 
 
