@@ -23,8 +23,10 @@ int main() {
     Kai::createCatRepl(&bot);
 
 	bot.on_ready([&bot](const dpp::ready_t &event) {
-		if (dpp::run_once<struct register_bot_commands>()) {
-			// bot.global_command_create(dpp::slashcommand("embed", "Sendatestembed!", bot.me.id));
+		if (dpp::run_once<struct register_bot_commands>()) {}
+
+		if (dpp::run_once<struct clear_bot_commands>()) {
+			bot.global_bulk_command_delete();
 		}
 	});
 
