@@ -6,7 +6,9 @@ set(PROJECT_NAME Kai)
 project(${PROJECT_NAME})
 
 file(GLOB_RECURSE SRC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h")
-add_executable(${PROJECT_NAME} ${SRC_FILES})
+
+add_library(${PROJECT_NAME}Lib STATIC ${SRC_FILES})
+add_executable(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/app/kai.cpp)
 
 include(cmake/CPM.cmake)
 
@@ -14,6 +16,12 @@ include(cmake/CPM.cmake)
 CPMAddPackage("gh:brainboxdotcc/DPP@10.1.2")
 
 target_link_libraries(${PROJECT_NAME} PRIVATE dpp)
+target_link_libraries(${PROJECT_NAME}Lib PRIVATE dpp)
+target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}Lib)
+
+target_include_directories(${PROJECT_NAME} PRIVATE src)
+target_include_directories(${PROJECT_NAME} PRIVATE include)
+target_include_directories(${PROJECT_NAME}Lib PRIVATE include)
 
 if (WIN32)
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD # Copy every needed dll to the bin dir
@@ -52,9 +60,9 @@ else()
     set(DEBUG_VALUE 0)
 endif()
 
-file(REMOVE ${CMAKE_CURRENT_SOURCE_DIR}/src/config.h)
+file(REMOVE ${CMAKE_CURRENT_SOURCE_DIR}/include/Kai/config.h)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/config.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Kai/config.h)
 
 
 install(TARGETS ${PROJECT_NAME}
