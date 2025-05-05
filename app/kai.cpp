@@ -5,6 +5,7 @@
 #include <Kai/logging.h>
 #include <Kai/miscellaneous.h>
 
+// These are non working example tokens
 #if DEBUG_VALUE // This is the Token for testing replace with your own bot Token nad the logger channel id!
 const std::string BOT_TOKEN = "MTM1NjY1NzIwMTkwNDYxOTc4Mg.GHSer4.suQ1pyJg5oCRjXqGy7oABmZRBYCzJLxGbGj0uY";
 const dpp::snowflake LOG_CHANNEL_ID = 1367473662172598412;
